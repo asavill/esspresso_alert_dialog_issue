@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='espresso_alert_dialog_issue'
