@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -43,7 +44,7 @@ class ExampleInstrumentedTest {
                 .setNeutralButton("b" + DialogInterface.BUTTON_NEUTRAL, listener).show()
         }
 
-        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).inRoot(isDialog()).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(android.R.id.button1)).check(doesNotExist())
 
@@ -68,7 +69,7 @@ class ExampleInstrumentedTest {
                 .setNeutralButton("b" + DialogInterface.BUTTON_NEUTRAL, listener).show()
         }
 
-        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).inRoot(isDialog()).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(android.R.id.button1)).check(doesNotExist())
 
